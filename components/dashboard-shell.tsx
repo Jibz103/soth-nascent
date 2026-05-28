@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent, useEffect, useMemo, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import {
   ArrowLeft,
@@ -750,8 +750,11 @@ export default function DashboardShell() {
                 serviceRequests={serviceRequests}
                 onAccountantProfileChange={setAccountantProfile}
                 onDeliverableNameChange={setDeliverableName}
-                onSubmitDeliverable={(requestId) => {
-                  attachRequestDeliverable(requestId, deliverableName || 'financial-report.pdf')
+                onSubmitDeliverable={(requestId, uploadedDeliverableName) => {
+                  attachRequestDeliverable(
+                    requestId,
+                    uploadedDeliverableName || deliverableName || 'financial-report.pdf',
+                  )
                   setServiceRequests(readServiceRequests())
                   setDeliverableName('')
                 }}
@@ -1099,7 +1102,7 @@ function AccountantWorkspace({
     }>
   >
   onDeliverableNameChange: (value: string) => void
-  onSubmitDeliverable: (requestId: string) => void
+  onSubmitDeliverable: (requestId: string, uploadedDeliverableName?: string) => void
   onUpdateRequest: (requestId: string, status: ServiceRequest['status']) => void
 }) {
   const [selectedRequestId, setSelectedRequestId] = useState<string | null>(null)
@@ -1120,6 +1123,17 @@ function AccountantWorkspace({
   ) => {
     onUpdateRequest(requestId, status)
     setSelectedRequestId(null)
+  }
+  const handleDeliverableUpload = (
+    event: ChangeEvent<HTMLInputElement>,
+    requestId: string,
+  ) => {
+    const uploadedFileName = event.target.files?.[0]?.name
+
+    if (uploadedFileName) {
+      onSubmitDeliverable(requestId, uploadedFileName)
+      event.target.value = ''
+    }
   }
 
   return (
@@ -1289,17 +1303,32 @@ function AccountantWorkspace({
                     <Input
                       value={deliverableName}
                       onChange={(event) => onDeliverableNameChange(event.target.value)}
-                      placeholder="mock-financial-statement.pdf"
+                      placeholder={request.deliverableName || 'mock-financial-statement.pdf'}
                       className="h-8"
+                    />
+                    <Input
+                      id={`deliverable-upload-${request.id}`}
+                      type="file"
+                      className="hidden"
+                      onChange={(event) => handleDeliverableUpload(event, request.id)}
                     />
                     <Button
                       type="button"
                       size="sm"
                       variant="outline"
-                      onClick={() => onSubmitDeliverable(request.id)}
+                      onClick={() => {
+                        if (deliverableName.trim()) {
+                          onSubmitDeliverable(request.id)
+                          return
+                        }
+
+                        document
+                          .getElementById(`deliverable-upload-${request.id}`)
+                          ?.click()
+                      }}
                     >
                       <FileUp size={16} />
-                      Upload
+                      {request.deliverableName ? 'Replace' : 'Upload'}
                     </Button>
                   </div>
                   <Button
@@ -1312,6 +1341,11 @@ function AccountantWorkspace({
                     Complete
                   </Button>
                 </div>
+                {request.deliverableName ? (
+                  <p className="mt-2 text-xs text-violet-700">
+                    Uploaded {request.deliverableName}. Waiting for client review.
+                  </p>
+                ) : null}
               </div>
             ))
           ) : (
