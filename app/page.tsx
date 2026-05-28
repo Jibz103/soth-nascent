@@ -12,7 +12,7 @@ import Footer from '@/components/footer'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background via-background to-slate-50">
+    <main className="min-h-screen bg-[linear-gradient(180deg,#f7fbff_0%,#ffffff_48%,#eff8f6_100%)]">
       <Header />
       <Hero />
       <HowItWorks />

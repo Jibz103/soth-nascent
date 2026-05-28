@@ -1,69 +1,78 @@
 import { Card } from '@/components/ui/card'
-import { BarChart3, FileText, TrendingUp, Calculator, PieChart } from 'lucide-react'
-
-const PesoIcon = () => (
-  <span className="text-2xl font-bold">₱</span>
-)
+import {
+  BarChart3,
+  BriefcaseBusiness,
+  Calculator,
+  ClipboardList,
+  FileText,
+  Landmark,
+} from 'lucide-react'
 
 export default function Services() {
   const services = [
     {
       icon: FileText,
       title: 'Bookkeeping',
-      description: 'Professional bookkeeping services to organize and maintain accurate financial records.'
+      description:
+        'Organize daily financial records, monitor transactions, and maintain accurate books for business reporting.',
     },
     {
       icon: Calculator,
       title: 'Tax Assistance',
-      description: 'Expert tax planning and preparation to minimize liabilities and maximize savings.'
+      description:
+        'Get support for tax preparation, compliance requirements, and practical filing guidance for businesses.',
     },
     {
       icon: BarChart3,
       title: 'Financial Statement Preparation',
-      description: 'Comprehensive financial statements prepared by certified accountants.'
+      description:
+        'Receive clear and timely financial statements prepared by qualified accounting professionals.',
     },
     {
-      icon: TrendingUp,
-      title: 'Financial Advisory',
-      description: 'Professional guidance for business growth, planning, and financial decisions.'
-    },
-    {
-      icon: PesoIcon,
+      icon: ClipboardList,
       title: 'Payroll Processing',
-      description: 'Streamlined payroll management and processing for businesses of all sizes in Philippines.'
+      description:
+        'Simplify payroll workflows, salary computations, and recurring employee payment records.',
     },
     {
-      icon: PieChart,
-      title: 'Business Registration',
-      description: 'Complete setup assistance for business registration and compliance requirements.'
+      icon: BriefcaseBusiness,
+      title: 'Financial Consultation',
+      description:
+        'Access budgeting, startup planning, and decision support to improve long-term financial management.',
+    },
+    {
+      icon: Landmark,
+      title: 'Business Registration Support',
+      description:
+        'Get help with business registration steps and related government compliance requirements.',
     },
   ]
 
   return (
-    <section id="services" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 text-balance">
-          Available Services on Soth Nascent
+    <section id="services" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mb-16 text-center">
+        <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+          Products and Services
         </h2>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto text-balance">
-          Browse our range of accounting expertise. Post your specific need and connect with the right professional.
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+          Soth Nascent delivers flexible accounting support for clients who need
+          reliable financial help without the cost of a permanent in-house team.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service, index) => {
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => {
           const Icon = service.icon
           return (
-            <Card key={index} className="p-6 border-slate-200 hover:shadow-lg transition">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Icon size={24} className="text-blue-600" />
+            <Card
+              key={service.title}
+              className="border-slate-200 p-6 transition hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                <Icon size={22} />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                {service.title}
-              </h3>
-              <p className="text-slate-600">
-                {service.description}
-              </p>
+              <h3 className="text-xl font-semibold text-slate-900">{service.title}</h3>
+              <p className="mt-3 text-slate-600">{service.description}</p>
             </Card>
           )
         })}

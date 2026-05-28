@@ -1,65 +1,78 @@
 import { Card } from '@/components/ui/card'
-import { Shield, Star, DollarSign, Zap, Lock, TrendingUp } from 'lucide-react'
+import {
+  DollarSign,
+  Lock,
+  MessageSquareMore,
+  Shield,
+  Star,
+  TrendingUp,
+} from 'lucide-react'
 
 export default function Features() {
   const features = [
     {
+      icon: DollarSign,
+      title: 'On-Demand Accounting Services',
+      description:
+        'Businesses can request bookkeeping, payroll, tax, and advisory services only when needed instead of hiring full-time staff.',
+    },
+    {
+      icon: MessageSquareMore,
+      title: 'Hybrid Consultation Setup',
+      description:
+        'The platform supports online communication and scheduled face-to-face consultations for clients who need personal interaction.',
+    },
+    {
       icon: Shield,
       title: 'Verified Professionals',
-      description: 'All accountants are credential-verified, ensuring you work with qualified experts with proven track records.'
+      description:
+        'Accountants undergo credential and background review to help maintain service quality, professionalism, and accountability.',
     },
     {
       icon: Star,
-      title: 'Transparent Ratings',
-      description: 'Real feedback from clients builds trust. Review ratings, testimonials, and specializations before hiring.'
+      title: 'Transparent Feedback System',
+      description:
+        'Ratings and client reviews reinforce trust and help businesses choose accounting support with more confidence.',
     },
     {
       icon: Lock,
-      title: 'Secure Workspace',
-      description: 'Encrypted document sharing, secure messaging, and protected payments keep your financial data safe.'
-    },
-    {
-      icon: DollarSign,
-      title: 'Flexible Pricing',
-      description: 'No long-term contracts or hidden fees. Pay only for services you use at rates you agree on upfront.'
-    },
-    {
-      icon: Zap,
-      title: 'Quick Turnaround',
-      description: 'Access to a network of available accountants means faster response times and quick project completion.'
+      title: 'Secure Document Handling',
+      description:
+        'Sensitive financial records can be uploaded, stored, and reviewed in a protected digital workspace.',
     },
     {
       icon: TrendingUp,
-      title: 'Professional Growth',
-      description: 'For accountants: build your client base, grow your reputation, and earn on your own schedule.'
+      title: 'Advisory for Growth',
+      description:
+        'Beyond compliance work, the platform supports budgeting, startup planning, and better financial decision-making.',
     },
   ]
 
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 text-balance">
-          Why Choose Soth Nascent
+    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mb-16 text-center">
+        <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+          Key Platform Features
         </h2>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-          A specialized accounting marketplace combining the flexibility of gig work with the expertise of certified professionals
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+          The service model follows your concept paper by combining flexibility,
+          professional expertise, data security, and accessibility in one platform.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map((feature, index) => {
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature) => {
           const Icon = feature.icon
           return (
-            <Card key={index} className="p-6 border-slate-200 hover:shadow-lg transition">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <Card
+              key={feature.title}
+              className="border-slate-200 p-6 transition hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100">
                 <Icon size={24} className="text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-slate-600">
-                {feature.description}
-              </p>
+              <h3 className="text-xl font-semibold text-slate-900">{feature.title}</h3>
+              <p className="mt-3 text-slate-600">{feature.description}</p>
             </Card>
           )
         })}
