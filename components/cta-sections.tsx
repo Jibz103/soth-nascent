@@ -1,62 +1,68 @@
 'use client'
 
+import Link from 'next/link'
+
+import { Button } from '@/components/ui/button'
+
 export default function CTASections() {
   return (
     <section className="py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* For Businesses */}
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 border border-blue-200">
-            <div className="text-3xl font-bold text-slate-900 mb-4">
-              Need Accounting Help?
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div className="rounded-[2rem] border border-blue-200 bg-gradient-to-br from-blue-50 to-cyan-100 p-8">
+            <div className="text-3xl font-bold text-slate-900">
+              Need accounting help?
             </div>
-            <p className="text-slate-700 mb-6">
-              Connect with verified, affordable accountants without long-term contracts. Post your task today and get matched with the right professional for your needs.
+            <p className="mb-6 mt-4 text-slate-700">
+              Clients can request only the services they need, communicate through
+              the platform, upload business documents securely, and schedule
+              consultations with verified professionals.
             </p>
-            <div className="space-y-3 mb-8">
+            <div className="mb-8 space-y-3">
               <div className="flex gap-2">
-                <span className="text-blue-600 font-bold">✓</span>
-                <span className="text-slate-700">No long-term commitments</span>
+                <span className="font-bold text-blue-600">1.</span>
+                <span className="text-slate-700">Bookkeeping, tax, payroll, and advisory support</span>
               </div>
               <div className="flex gap-2">
-                <span className="text-blue-600 font-bold">✓</span>
-                <span className="text-slate-700">Flexible, affordable pricing</span>
+                <span className="font-bold text-blue-600">2.</span>
+                <span className="text-slate-700">Affordable, on-demand services without fixed contracts</span>
               </div>
               <div className="flex gap-2">
-                <span className="text-blue-600 font-bold">✓</span>
-                <span className="text-slate-700">Secure document sharing</span>
+                <span className="font-bold text-blue-600">3.</span>
+                <span className="text-slate-700">Secure document uploads and direct communication</span>
               </div>
             </div>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-medium rounded-md w-full transition-colors">
-              Post Your First Task
-            </button>
+            <Button asChild className="h-11 w-full bg-blue-600 text-white hover:bg-blue-700">
+              <Link href="/login?role=client">Open Client Demo</Link>
+            </Button>
           </div>
 
-          {/* For Accountants */}
-          <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-8 border border-green-200">
-            <div className="text-3xl font-bold text-slate-900 mb-4">
-              Ready to Earn?
+          <div className="rounded-[2rem] border border-green-200 bg-gradient-to-br from-green-50 to-emerald-100 p-8">
+            <div className="text-3xl font-bold text-slate-900">
+              Ready to work as an accountant?
             </div>
-            <p className="text-slate-700 mb-6">
-              Join our network of verified accounting professionals. Build your client base, set your own rates, and work on projects that match your expertise.
+            <p className="mb-6 mt-4 text-slate-700">
+              Verified professionals can accept projects based on expertise and
+              availability while building reputation through quality work and
+              client feedback.
             </p>
-            <div className="space-y-3 mb-8">
+            <div className="mb-8 space-y-3">
               <div className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-slate-700">Work on your own schedule</span>
+                <span className="font-bold text-green-600">1.</span>
+                <span className="text-slate-700">Flexible project-based income opportunities</span>
               </div>
               <div className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-slate-700">Set your own rates</span>
+                <span className="font-bold text-green-600">2.</span>
+                <span className="text-slate-700">A secure workspace for files, updates, and consultations</span>
               </div>
               <div className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-slate-700">Build professional reputation</span>
+                <span className="font-bold text-green-600">3.</span>
+                <span className="text-slate-700">Professional visibility through ratings and completed engagements</span>
               </div>
             </div>
-            <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 font-medium rounded-md w-full transition-colors">
-              Apply as Accountant
-            </button>
+            <Button asChild className="h-11 w-full bg-green-600 text-white hover:bg-green-700">
+              <Link href="/login?role=accountant">Open Accountant Demo</Link>
+            </Button>
           </div>
         </div>
       </div>

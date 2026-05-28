@@ -1,52 +1,100 @@
-import { CheckCircle, Users, FileText, DollarSign, Briefcase, Award } from 'lucide-react'
+import {
+  Briefcase,
+  CalendarCheck2,
+  CheckCircle,
+  FileText,
+  ShieldCheck,
+  Users,
+} from 'lucide-react'
 
 export default function HowItWorks() {
   const businessSteps = [
-    { icon: Briefcase, title: 'Post Your Task', description: 'Describe your accounting need and get matched with qualified professionals' },
-    { icon: Users, title: 'Connect with Expert', description: 'Browse profiles, ratings, and experience to find the perfect accountant' },
-    { icon: FileText, title: 'Collaborate Securely', description: 'Share documents and communicate in our secure digital workspace' },
-    { icon: DollarSign, title: 'Pay with Confidence', description: 'Secure payment protection until work is completed to your satisfaction' },
+    {
+      icon: Briefcase,
+      title: 'Request a Service',
+      description:
+        'Clients choose bookkeeping, tax support, payroll, registration, or advisory services based on current business needs.',
+    },
+    {
+      icon: FileText,
+      title: 'Upload Financial Records',
+      description:
+        'Business documents can be submitted through the secure digital workspace for organized review.',
+    },
+    {
+      icon: Users,
+      title: 'Connect with a Verified Accountant',
+      description:
+        'The platform matches clients with a suitable professional for remote support or limited face-to-face consultation.',
+    },
+    {
+      icon: CalendarCheck2,
+      title: 'Receive Ongoing Guidance',
+      description:
+        'Clients track progress, consultations, and deliverables without long hiring processes or fixed contracts.',
+    },
   ]
 
   const accountantSteps = [
-    { icon: Award, title: 'Build Your Profile', description: 'Showcase your credentials, certifications, and experience to attract clients' },
-    { icon: CheckCircle, title: 'Browse Opportunities', description: 'Discover tasks that match your expertise and set your own rates' },
-    { icon: Users, title: 'Collaborate Directly', description: 'Work with clients in a professional digital environment with built-in tools' },
-    { icon: DollarSign, title: 'Earn Flexibly', description: 'Get paid securely for completed work without long-term contracts' },
+    {
+      icon: ShieldCheck,
+      title: 'Verify Credentials',
+      description:
+        'Accountants submit qualifications and background details before offering services on the platform.',
+    },
+    {
+      icon: Briefcase,
+      title: 'Accept Matching Projects',
+      description:
+        'Professionals choose tasks based on expertise, availability, and preferred service type.',
+    },
+    {
+      icon: FileText,
+      title: 'Work in a Secure Workspace',
+      description:
+        'All files, deliverables, and updates are organized in one shared environment for better accountability.',
+    },
+    {
+      icon: CheckCircle,
+      title: 'Build Reputation and Income',
+      description:
+        'Successful projects and client feedback help accountants grow their profile and career opportunities.',
+    },
   ]
 
   return (
-    <section className="bg-slate-50 py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 text-balance">
-            How Soth Nascent Works
+    <section id="process" className="bg-slate-50/80 py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+            How the Hybrid Platform Works
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Simple, transparent process for both businesses seeking accounting help and professionals offering expertise
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+            Soth Nascent combines a professional website with personalized
+            accounting support so both businesses and accountants can work with
+            more flexibility and less overhead.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* For Businesses */}
+        <div className="grid gap-12 md:grid-cols-2">
           <div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">
-              <span className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">B</span>
-              For Businesses
+            <h3 className="mb-8 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                C
+              </span>
+              For Clients and Businesses
             </h3>
             <div className="space-y-6">
-              {businessSteps.map((step, index) => {
+              {businessSteps.map((step) => {
                 const Icon = step.icon
                 return (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100">
-                        <Icon size={24} className="text-blue-600" />
-                      </div>
+                  <div key={step.title} className="flex gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-100">
+                      <Icon size={24} className="text-blue-600" />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-slate-900">{step.title}</h4>
-                      <p className="text-slate-600 mt-1">{step.description}</p>
+                      <p className="mt-1 text-slate-600">{step.description}</p>
                     </div>
                   </div>
                 )
@@ -54,25 +102,24 @@ export default function HowItWorks() {
             </div>
           </div>
 
-          {/* For Accountants */}
           <div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">
-              <span className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">A</span>
+            <h3 className="mb-8 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
+                A
+              </span>
               For Accountants
             </h3>
             <div className="space-y-6">
-              {accountantSteps.map((step, index) => {
+              {accountantSteps.map((step) => {
                 const Icon = step.icon
                 return (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-green-100">
-                        <Icon size={24} className="text-green-600" />
-                      </div>
+                  <div key={step.title} className="flex gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-green-100">
+                      <Icon size={24} className="text-green-600" />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-slate-900">{step.title}</h4>
-                      <p className="text-slate-600 mt-1">{step.description}</p>
+                      <p className="mt-1 text-slate-600">{step.description}</p>
                     </div>
                   </div>
                 )

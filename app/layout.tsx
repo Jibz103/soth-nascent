@@ -8,8 +8,8 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Soth Nascent Accounting Services',
-  description: 'Professional accounting, bookkeeping, and financial consulting services for businesses of all sizes.',
-  generator: 'v0.app',
+  description:
+    'A hybrid accounting platform connecting businesses with verified accountants for bookkeeping, tax, payroll, advisory, and compliance support.',
   icons: {
     icon: [
       {
